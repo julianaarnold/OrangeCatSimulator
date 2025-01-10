@@ -12,8 +12,12 @@ public class IKFeetTracker : MonoBehaviour
 
     public bool isAttached = false;
 
+    public bool positionReached = false;
+
     float thighLength;
     float shinLength;
+
+    Quaternion targetRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +37,10 @@ public class IKFeetTracker : MonoBehaviour
                 ResetPosition();
             }
         } else {
-            if (Physics.Raycast(transform.position + Vector3.up * 0.05f, Vector3.down, out RaycastHit hit, 1.0f)) {
-                Attach(hit.transform);
+            if (positionReached) {
+                if (Physics.Raycast(transform.position + Vector3.up * 0.05f, Vector3.down, out RaycastHit hit, 1.0f)) {
+                    Attach(hit.transform);
+                }
             }
         }
 
@@ -44,7 +50,17 @@ public class IKFeetTracker : MonoBehaviour
     void UpdateLinkage() {
         // Simpified version
 
-        thighTarget.rotation = Quaternion.FromToRotation(footTarget.position - thighTarget.position, transform.position - thighTarget.position) * thighTarget.rotation;
+        targetRotation = Quaternion.FromToRotation(footTarget.position - thighTarget.position, transform.position - thighTarget.position) * thighTarget.rotation;
+        
+        
+        if (!isAttached) {
+            if (Quaternion.Angle(thighTarget.rotation, targetRotation) < 1.0f) positionReached = true;
+            else positionReached = false;
+
+            thighTarget.rotation = Quaternion.Slerp(thighTarget.rotation, targetRotation, 0.2f);
+        } else {
+            thighTarget.rotation = targetRotation;
+        }
         
         //footTarget.position = transform.position;
         //footTarget.rotation = transform.rotation;
