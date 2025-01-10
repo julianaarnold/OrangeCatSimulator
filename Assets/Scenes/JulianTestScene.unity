@@ -360,6 +360,76 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2568846381192864090, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.192
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568846381192864090, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.054
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568846381192864090, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9815068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568846381192864090, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.19142707
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568846381192864090, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568846381192864090, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568846381192864090, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 22.072
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873799025315398314, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873799025315398314, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.687
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873799025315398314, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873799025315398314, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873799025315398314, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873799025315398314, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873799025315398314, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6798776003765014789, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -409,6 +479,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8624197980970801829, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
