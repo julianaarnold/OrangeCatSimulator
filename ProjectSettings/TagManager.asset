@@ -8,6 +8,7 @@ TagManager:
   - Counter
   - scratchable
   - throwable
+  - breakable
   layers:
   - Default
   - TransparentFX

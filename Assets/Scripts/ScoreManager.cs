@@ -13,5 +13,6 @@ public class ScoreManager : MonoBehaviour
 
     public void addToScore(int addition) {
         score += addition;
+        Debug.Log(score);
     }
 }
