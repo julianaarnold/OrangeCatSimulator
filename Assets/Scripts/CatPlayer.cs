@@ -6,6 +6,7 @@ public class CatPlayer : MonoBehaviour
 {
     public float moveSpeed = 1.0f;
     public float lookSpeed = 50.0f;
+    public float jumpSpeed = 1.0f;
 
     private float pitch = 30.0f;
 
@@ -24,6 +25,7 @@ public class CatPlayer : MonoBehaviour
 
         movement += transform.right * Input.GetAxis("Horizontal");
         movement += transform.forward * Input.GetAxis("Vertical");
+        movement += transform.up * Input.GetAxis("Jump");
 
         transform.position += movement * moveSpeed * Time.deltaTime;
 
