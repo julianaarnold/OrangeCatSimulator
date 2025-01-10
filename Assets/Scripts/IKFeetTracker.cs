@@ -38,7 +38,7 @@ public class IKFeetTracker : MonoBehaviour
             }
         } else {
             if (positionReached) {
-                if (Physics.Raycast(transform.position + Vector3.up * 0.05f, Vector3.down, out RaycastHit hit, 1.0f)) {
+                if (Physics.Raycast(transform.position + Vector3.up * 0.05f, Vector3.down, out RaycastHit hit, 1.0f, ~LayerMask.GetMask("Player"))) {
                     Attach(hit.transform);
                 }
             }
