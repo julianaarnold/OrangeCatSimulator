@@ -265,6 +265,7 @@ Transform:
   - {fileID: 5880874211869870882}
   - {fileID: 6246262613497963628}
   - {fileID: 3222965831820725627}
+  - {fileID: 8944474914029047276}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2511550263253312259
@@ -285,6 +286,7 @@ MonoBehaviour:
   cameraOrigin: {fileID: 2568846381192864090}
   jumpRay: 0.25
   bonker: {fileID: 4171916579330797936}
+  bonkVolume: {fileID: 3128408688389236053}
 --- !u!114 &8648236956130680010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,6 +396,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6798776003765014789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3897957663085028195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8944474914029047276}
+  - component: {fileID: 3128408688389236053}
+  m_Layer: 0
+  m_Name: BonkVolume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8944474914029047276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3897957663085028195}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.15323655}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6798776003765014789}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3128408688389236053
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3897957663085028195}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.24, y: -0.15, z: 0.21}
+  m_Center: {x: 0, y: 0.047363155, z: -0.030929819}
 --- !u!1 &6269175858893658874
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +584,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6621721883735292432}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -629,6 +684,9 @@ MonoBehaviour:
   leftBonkEnd: {fileID: 5188687663664676790}
   rightBonkEnd: {fileID: 2223020655807513566}
   bonkTime: 0.2
+  bonkFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7126027491861145658
 GameObject:
   m_ObjectHideFlags: 0

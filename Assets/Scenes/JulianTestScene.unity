@@ -135,9 +135,9 @@ GameObject:
   - component: {fileID: 15176481}
   - component: {fileID: 15176480}
   - component: {fileID: 15176479}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,6 +229,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &378533754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 378533756}
+  - component: {fileID: 378533755}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &378533755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378533754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a41cf2d77a989b48abe85c61a4216eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+--- !u!4 &378533756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378533754}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.75362736, y: 0.5797377, z: 1.6679786}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &386337971
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +287,7 @@ GameObject:
   - component: {fileID: 386337973}
   - component: {fileID: 386337972}
   - component: {fileID: 386337976}
+  - component: {fileID: 386337977}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -362,6 +408,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &386337977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386337971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4759b6e94d2b535469370fd872d99219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}
 --- !u!1 &1140955211
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,7 +435,7 @@ GameObject:
   - component: {fileID: 1140955212}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Counter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -461,7 +520,7 @@ Transform:
   m_GameObject: {fileID: 1140955211}
   serializedVersion: 2
   m_LocalRotation: {x: -0.2588188, y: -0, z: -0, w: 0.96592593}
-  m_LocalPosition: {x: 0, y: -0.435, z: 0.815}
+  m_LocalPosition: {x: 0, y: -0.434, z: 0.809}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -598,11 +657,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4171916579330797936, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
-        type: 3}
-      propertyPath: bonkTime
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6798776003765014789, guid: 075cad4cb87f4a445a66ee09d3fc7c14,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -672,7 +726,7 @@ GameObject:
   - component: {fileID: 2046935580}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Counter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -773,3 +827,4 @@ SceneRoots:
   - {fileID: 2046935583}
   - {fileID: 386337975}
   - {fileID: 1140955215}
+  - {fileID: 378533756}

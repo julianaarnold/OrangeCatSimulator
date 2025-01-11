@@ -28,6 +28,9 @@ public class IKFeetTracker : MonoBehaviour
 
     Quaternion targetRotation;
 
+
+    Quaternion initialThighRotation;
+
     public AnimationState animationState = AnimationState.Walking;
 
     // Start is called before the first frame update
@@ -35,6 +38,8 @@ public class IKFeetTracker : MonoBehaviour
     {
         thighLength = Vector3.Distance(thighTarget.position, shinTarget.position);
         shinLength = Vector3.Distance(shinTarget.position, footTarget.position);
+
+        initialThighRotation = thighTarget.rotation;
     }
 
     // Update is called once per frame
@@ -67,13 +72,15 @@ public class IKFeetTracker : MonoBehaviour
 
         float jointAngle = GetJointAngle(thighLength, shinLength, targetDistance);
 
-        Debug.Log(jointAngle);
         shinTarget.localRotation = Quaternion.Euler(shinRotationOffset + new Vector3(jointAngle * (shinRotationSign ? -1:1), 0, 0));
 
         targetRotation = Quaternion.FromToRotation(footTarget.position - thighTarget.position, transform.position - thighTarget.position) * thighTarget.rotation;
         
         if (!isAttached) {
-            if (Quaternion.Angle(thighTarget.rotation, targetRotation) < 1.0f) positionReached = true;
+            if (Quaternion.Angle(thighTarget.rotation, targetRotation) < 1.0f) {
+                positionReached = true;
+                //CancelRotationBuildup();
+            }
             else positionReached = false;
 
             thighTarget.rotation = Quaternion.Slerp(thighTarget.rotation, targetRotation, 0.2f);
@@ -86,7 +93,6 @@ public class IKFeetTracker : MonoBehaviour
     }
 
     float GetJointAngle(float a, float b, float c) {
-        Debug.Log("a: " + a + " b: " + b + " c: " + c);
         c = Mathf.Clamp(c, 0, a + b - 0.001f);
         return 180 - Mathf.Rad2Deg * Mathf.Acos((a*a + b*b - c*c) / (2*a*b));
     }
@@ -104,6 +110,7 @@ public class IKFeetTracker : MonoBehaviour
 
     void ResetPosition() {
         transform.position = rootPosition.position + (rootPosition.position - transform.position) * 0.5f;
+        transform.localPosition = new Vector3(rootPosition.localPosition.x, transform.localPosition.y, transform.localPosition.z);
         transform.rotation = rootPosition.rotation;
     }
 
@@ -118,5 +125,10 @@ public class IKFeetTracker : MonoBehaviour
     public void StopBonk() {
         Detach();
         animationState = AnimationState.Walking;
+    }
+
+    private void CancelRotationBuildup() {
+        thighTarget.rotation = initialThighRotation;
+        thighTarget.rotation = Quaternion.FromToRotation(footTarget.position - thighTarget.position, transform.position - thighTarget.position) * thighTarget.rotation;
     }
 }
