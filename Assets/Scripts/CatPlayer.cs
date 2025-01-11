@@ -12,12 +12,14 @@ public class CatPlayer : MonoBehaviour
 
     public Transform cameraOrigin;
     private Rigidbody selfRigidbody;
+    private CatAnimator kittyAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         selfRigidbody = GetComponent<Rigidbody>();
+        kittyAnimator = GetComponent<CatAnimator>();
     }
 
     // Update is called once per frame
@@ -28,7 +30,12 @@ public class CatPlayer : MonoBehaviour
         movement += transform.right * Input.GetAxis("Horizontal");
         movement += transform.forward * Input.GetAxis("Vertical");
 
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            kittyAnimator.PrepareJump();
+        }
+
         if (Input.GetKeyUp(KeyCode.Space)) {
+            kittyAnimator.Jump();
             selfRigidbody.AddForce(0, forceConst, 0, ForceMode.Impulse);
         }
 
