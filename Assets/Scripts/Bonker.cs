@@ -51,17 +51,28 @@ public class Bonker : MonoBehaviour
     }
     
     [ContextMenu("Bonk Left")]
-    public void BonkLeft() {
-        currentBonkStart = leftBonkStart.localPosition;
-        currentBonkEnd = leftBonkEnd.localPosition;
+    public void BonkLeft(Transform bonkable) {
+        if (bonkable == null) {
+            currentBonkStart = leftBonkStart.localPosition;
+            currentBonkEnd = leftBonkEnd.localPosition;
+        } else {
+            currentBonkStart = transform.parent.InverseTransformPoint(bonkable.position) + Vector3.left * 0.1f;
+            currentBonkEnd = transform.parent.InverseTransformPoint(bonkable.position) + Vector3.right * 0.1f;
+        }
 
         StartBonk();
     }
 
     [ContextMenu("Bonk Right")]
-    public void BonkRight() {
-        currentBonkStart = rightBonkStart.localPosition;
-        currentBonkEnd = rightBonkEnd.localPosition;
+    public void BonkRight(Transform bonkable) {
+        if (bonkable == null) {
+            currentBonkStart = rightBonkStart.localPosition;
+            currentBonkEnd = rightBonkEnd.localPosition;
+        } else {
+            currentBonkStart = transform.parent.InverseTransformPoint(bonkable.position) + Vector3.right * 0.1f;
+            currentBonkEnd = transform.parent.InverseTransformPoint(bonkable.position) + Vector3.left * 0.1f;
+        }
+        
 
         StartBonk();
     }
@@ -78,5 +89,6 @@ public class Bonker : MonoBehaviour
         collision.enabled = false;
 
         bonkFinished.Invoke();
+        bonkFinished.RemoveAllListeners();
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class CatPlayer : MonoBehaviour
     private bool canJump;
     public float jumpRay = 0.25f;
     public Bonker bonker;
+
+    public Collider bonkVolume;
 
     // Start is called before the first frame update
     void Start()
@@ -46,12 +49,12 @@ public class CatPlayer : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Q)) {
-            bonker.BonkLeft();
+            bonker.BonkLeft(getCurrentBonkable());
             kittyAnimator.BonkLeft();
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {
-            bonker.BonkRight();
+            bonker.BonkRight(getCurrentBonkable());
             kittyAnimator.BonkRight();
         }
 
@@ -68,5 +71,18 @@ public class CatPlayer : MonoBehaviour
 
         cameraOrigin.localRotation = Quaternion.Euler(pitch, 0, 0);
 
+    }
+
+    private Transform getCurrentBonkable() {
+        Collider[] colliders = Physics.OverlapBox(bonkVolume.bounds.center, bonkVolume.bounds.extents, bonkVolume.transform.rotation);
+
+        for (int i = 0; i < colliders.Length; i++) {
+            Debug.Log(colliders[i].name);
+            if (colliders[i].TryGetComponent(out ScoreBehaviour bonkable)) {
+                return colliders[i].transform;
+            }
+        }
+
+        return null;
     }
 }
