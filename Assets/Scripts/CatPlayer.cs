@@ -15,6 +15,7 @@ public class CatPlayer : MonoBehaviour
     private CatAnimator kittyAnimator;
     private bool canJump;
     public float jumpRay = 0.25f;
+    public Bonker bonker;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,14 @@ public class CatPlayer : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space) && canJump) {
             kittyAnimator.Jump();
             selfRigidbody.AddForce(0, forceConst, 0, ForceMode.Impulse);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            bonker.BonkLeft();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E)) {
+            bonker.BonkRight();
         }
 
         transform.position += movement * moveSpeed * Time.deltaTime;

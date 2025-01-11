@@ -282,6 +282,8 @@ MonoBehaviour:
   lookSpeed: 90
   forceConst: 2
   cameraOrigin: {fileID: 2568846381192864090}
+  jumpRay: 0.25
+  bonker: {fileID: 4171916579330797936}
 --- !u!114 &8648236956130680010
 MonoBehaviour:
   m_ObjectHideFlags: 0
