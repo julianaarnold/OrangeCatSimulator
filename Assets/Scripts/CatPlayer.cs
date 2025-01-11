@@ -47,10 +47,12 @@ public class CatPlayer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q)) {
             bonker.BonkLeft();
+            kittyAnimator.BonkLeft();
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {
             bonker.BonkRight();
+            kittyAnimator.BonkRight();
         }
 
         transform.position += movement * moveSpeed * Time.deltaTime;

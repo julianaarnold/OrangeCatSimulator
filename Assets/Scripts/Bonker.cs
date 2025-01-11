@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Bonker : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class Bonker : MonoBehaviour
 
     private Rigidbody rb;
     private Collider collision;
+
+    public UnityEvent bonkFinished;
 
 
     // Start is called before the first frame update
@@ -73,5 +76,7 @@ public class Bonker : MonoBehaviour
     public void StopBonk() {
         bonking = false;
         collision.enabled = false;
+
+        bonkFinished.Invoke();
     }
 }

@@ -11,6 +11,8 @@ public class CatAnimator : MonoBehaviour
     public IKFeetTracker footBackLeft;
     public IKFeetTracker footBackRight;
 
+    public Bonker bonker;
+
     public float height;
     public float prepareJumpHeight;
 
@@ -34,5 +36,15 @@ public class CatAnimator : MonoBehaviour
     {
         heightOffsetTarget = height;
         heightOffsetVelocity = 0.01f;
+    }
+
+    public void BonkLeft()
+    {
+        footFrontLeft.StartBonk(bonker);
+    }
+
+    public void BonkRight()
+    {
+        footFrontRight.StartBonk(bonker);
     }
 }

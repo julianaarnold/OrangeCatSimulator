@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum AnimationState {
+    Walking,
+    Bonking,
+}
+
 public class IKFeetTracker : MonoBehaviour
 {
     public Transform rootPosition;
@@ -22,6 +28,8 @@ public class IKFeetTracker : MonoBehaviour
 
     Quaternion targetRotation;
 
+    public AnimationState animationState = AnimationState.Walking;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,21 +40,23 @@ public class IKFeetTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isAttached) {
-            float distance = Vector3.Distance(transform.position, rootPosition.position);
+        if (animationState == AnimationState.Walking) {
+            if (isAttached) {
+                float distance = Vector3.Distance(transform.position, rootPosition.position);
 
-            if (distance > 0.1f) {
-                Detach();
-                ResetPosition();
-            }
-        } else {
-            if (positionReached) {
-                if (Physics.Raycast(transform.position + Vector3.up * 0.2f, Vector3.down, out RaycastHit hit, 1.0f, ~LayerMask.GetMask("Player"))) {
-                    Attach(hit.transform, hit.point);
+                if (distance > 0.1f) {
+                    Detach();
+                    ResetPosition();
+                }
+            } else {
+                if (positionReached) {
+                    if (Physics.Raycast(transform.position + Vector3.up * 0.2f, Vector3.down, out RaycastHit hit, 1.0f, ~LayerMask.GetMask("Player"))) {
+                        Attach(hit.transform, hit.point);
+                    }
                 }
             }
         }
-
+        
         UpdateLinkage();
     }
 
@@ -95,5 +105,18 @@ public class IKFeetTracker : MonoBehaviour
     void ResetPosition() {
         transform.position = rootPosition.position + (rootPosition.position - transform.position) * 0.5f;
         transform.rotation = rootPosition.rotation;
+    }
+
+    public void StartBonk(Bonker bonker) {
+        Attach(bonker.transform, bonker.transform.position);
+        animationState = AnimationState.Bonking;
+
+        bonker.bonkFinished.AddListener(StopBonk);
+
+    }
+
+    public void StopBonk() {
+        Detach();
+        animationState = AnimationState.Walking;
     }
 }
