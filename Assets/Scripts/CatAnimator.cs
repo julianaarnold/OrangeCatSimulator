@@ -19,7 +19,7 @@ public class CatAnimator : MonoBehaviour
 
     private void Update()
     {
-        float newHeight = Mathf.SmoothDamp(heightOffset.localPosition.y, heightOffsetTarget, ref heightOffsetVelocity, 0.1f);
+        float newHeight = Mathf.SmoothDamp(heightOffset.localPosition.y, heightOffsetTarget, ref heightOffsetVelocity, Time.deltaTime);
 
         heightOffset.localPosition = new Vector3(heightOffset.localPosition.x, newHeight, heightOffset.localPosition.z);
     }
@@ -27,12 +27,12 @@ public class CatAnimator : MonoBehaviour
     public void PrepareJump()
     {
         heightOffsetTarget = prepareJumpHeight;
-        heightOffsetVelocity = 2f;
+        heightOffsetVelocity = .05f;
     }
 
     public void Jump()
     {
         heightOffsetTarget = height;
-        heightOffsetVelocity = 0.5f;
+        heightOffsetVelocity = 0.01f;
     }
 }
