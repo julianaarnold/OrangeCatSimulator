@@ -13,6 +13,8 @@ public class CatPlayer : MonoBehaviour
     public Transform cameraOrigin;
     private Rigidbody selfRigidbody;
     private CatAnimator kittyAnimator;
+    private bool canJump;
+    public float jumpRay = 0.25f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class CatPlayer : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         selfRigidbody = GetComponent<Rigidbody>();
         kittyAnimator = GetComponent<CatAnimator>();
+        canJump = true;
     }
 
     // Update is called once per frame
@@ -27,14 +30,16 @@ public class CatPlayer : MonoBehaviour
     {
         Vector3 movement = new Vector3(0, 0, 0);
 
+        canJump = Physics.Raycast(transform.position + Vector3.up * 0.2f, Vector3.down, out RaycastHit hit, jumpRay, LayerMask.GetMask("Ground") | LayerMask.GetMask("Counter"));
+
         movement += transform.right * Input.GetAxis("Horizontal");
         movement += transform.forward * Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space) && canJump) {
             kittyAnimator.PrepareJump();
         }
 
-        if (Input.GetKeyUp(KeyCode.Space)) {
+        if (Input.GetKeyUp(KeyCode.Space) && canJump) {
             kittyAnimator.Jump();
             selfRigidbody.AddForce(0, forceConst, 0, ForceMode.Impulse);
         }
