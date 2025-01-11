@@ -280,7 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   lookSpeed: 90
-  jumpSpeed: 1
+  forceConst: 2
   cameraOrigin: {fileID: 2568846381192864090}
 --- !u!114 &8648236956130680010
 MonoBehaviour:
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc73738b0e41b23489d95da965e1405e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heightOffset: {fileID: 0}
+  heightOffset: {fileID: 3222965831820725627}
   footFrontLeft: {fileID: 4067561824722082777}
   footFrontRight: {fileID: 1441034128191516961}
   footBackLeft: {fileID: 4714993642230827553}
