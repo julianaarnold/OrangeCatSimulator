@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 5495708707167656978}
   m_Layer: 0
   m_Name: milk
-  m_TagString: Untagged
+  m_TagString: breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 0}
+  metal_pipe: {fileID: 0}
 --- !u!1 &8903881917477843628
 GameObject:
   m_ObjectHideFlags: 0

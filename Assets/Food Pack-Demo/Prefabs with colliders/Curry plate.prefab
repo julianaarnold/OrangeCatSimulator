@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4017316802450564797}
   m_Layer: 0
   m_Name: Curry plate
-  m_TagString: Untagged
+  m_TagString: breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,3 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 0}
+  metal_pipe: {fileID: 0}

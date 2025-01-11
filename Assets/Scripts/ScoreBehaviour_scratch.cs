@@ -15,7 +15,7 @@ public class ScoreBehaviour_scratch : MonoBehaviour
 
     public void scratchScore() {
         if (scratched == false) {
-            scoreManager.addToScore(40);
+            scoreManager.addToScore(50);
             scratched = true;
         }
     }

@@ -68,6 +68,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cactus
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f390714eec2aeab488716719ee8e963e,
+        type: 3}
+      propertyPath: m_TagString
+      value: breakable
+      objectReference: {fileID: 0}
     - target: {fileID: 3334652376561411232, guid: f390714eec2aeab488716719ee8e963e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -179,3 +184,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 0}
+  metal_pipe: {fileID: 0}

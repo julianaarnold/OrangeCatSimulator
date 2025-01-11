@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8834932250690774305}
   m_Layer: 0
   m_Name: wine_1
-  m_TagString: Untagged
+  m_TagString: breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 0}
+  metal_pipe: {fileID: 0}
 --- !u!1 &8338501934244030819
 GameObject:
   m_ObjectHideFlags: 0

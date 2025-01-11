@@ -15,7 +15,7 @@ public class ScoreBehaviour_bite : MonoBehaviour
 
     public void scratchScore() {
         if (eaten == false) {
-            scoreManager.addToScore(50);
+            scoreManager.addToScore(20);
             eaten = true;
         }
     }

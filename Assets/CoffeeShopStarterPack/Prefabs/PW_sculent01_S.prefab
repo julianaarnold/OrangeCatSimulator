@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5376479111234165849}
   m_Layer: 0
   m_Name: PW_sculent01_S
-  m_TagString: Untagged
+  m_TagString: breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 0}
+  metal_pipe: {fileID: 0}
 --- !u!1 &1195242350170944
 GameObject:
   m_ObjectHideFlags: 0
