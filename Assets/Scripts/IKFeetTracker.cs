@@ -119,7 +119,6 @@ public class IKFeetTracker : MonoBehaviour
         animationState = AnimationState.Bonking;
 
         bonker.bonkFinished.AddListener(StopBonk);
-
     }
 
     public void StopBonk() {
