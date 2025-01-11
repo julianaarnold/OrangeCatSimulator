@@ -6,16 +6,18 @@ public class CatPlayer : MonoBehaviour
 {
     public float moveSpeed = 1.0f;
     public float lookSpeed = 50.0f;
-    public float jumpSpeed = 1.0f;
+    public float forceConst = 2.0f;
 
     private float pitch = 30.0f;
 
     public Transform cameraOrigin;
+    private Rigidbody selfRigidbody;
 
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        selfRigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -25,7 +27,10 @@ public class CatPlayer : MonoBehaviour
 
         movement += transform.right * Input.GetAxis("Horizontal");
         movement += transform.forward * Input.GetAxis("Vertical");
-        movement += transform.up * Input.GetAxis("Jump");
+
+        if (Input.GetKeyUp(KeyCode.Space)) {
+            selfRigidbody.AddForce(0, forceConst, 0, ForceMode.Impulse);
+        }
 
         transform.position += movement * moveSpeed * Time.deltaTime;
 
