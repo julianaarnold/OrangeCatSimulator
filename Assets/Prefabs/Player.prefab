@@ -625,7 +625,7 @@ MonoBehaviour:
   rightBonkStart: {fileID: 5188687663664676790}
   leftBonkEnd: {fileID: 5188687663664676790}
   rightBonkEnd: {fileID: 2223020655807513566}
-  bonkTime: 0.5
+  bonkTime: 0.2
 --- !u!1 &7126027491861145658
 GameObject:
   m_ObjectHideFlags: 0
