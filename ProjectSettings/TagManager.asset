@@ -9,6 +9,8 @@ TagManager:
   - scratchable
   - throwable
   - breakable
+  - Fluid
+  - biteable
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - Ground
   - 
   - 
   - 
