@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 9893840070770358}
   - component: {fileID: 8962269143395159856}
   - component: {fileID: 2819579633706132812}
+  - component: {fileID: 1947263648516383461}
+  - component: {fileID: 1807094789997470498}
   m_Layer: 0
   m_Name: Melon half
   m_TagString: Untagged
@@ -134,3 +136,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1947263648516383461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955646447211667299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3adc9e9889b8c4e8bbd870b9b5e201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}
+--- !u!114 &1807094789997470498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955646447211667299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4759b6e94d2b535469370fd872d99219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}

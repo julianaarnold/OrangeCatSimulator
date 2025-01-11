@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2926240695773167493}
   - component: {fileID: 4171085526938429573}
   - component: {fileID: 4830228307389086654}
+  - component: {fileID: 692709893627826526}
+  - component: {fileID: 7756151143639988808}
   m_Layer: 0
   m_Name: Salmon plastic tray
   m_TagString: Untagged
@@ -134,3 +136,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &692709893627826526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3719098186589429328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3adc9e9889b8c4e8bbd870b9b5e201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}
+--- !u!114 &7756151143639988808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3719098186589429328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4759b6e94d2b535469370fd872d99219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}

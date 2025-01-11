@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 6950439758808528942}
   - component: {fileID: 4092288520732394851}
   - component: {fileID: 827295812274861473}
+  - component: {fileID: 8834932250690774305}
   m_Layer: 0
   m_Name: wine_1
   m_TagString: Untagged
@@ -169,6 +170,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8834932250690774305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4825685418855503791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4759b6e94d2b535469370fd872d99219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}
 --- !u!1 &8338501934244030819
 GameObject:
   m_ObjectHideFlags: 0

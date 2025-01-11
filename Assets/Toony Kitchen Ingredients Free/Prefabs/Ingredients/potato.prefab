@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3894455745534788877}
   - component: {fileID: 3703440070148877211}
   - component: {fileID: 6998238733961920773}
+  - component: {fileID: 450222549071903886}
+  - component: {fileID: 747352250732980946}
   m_Layer: 0
   m_Name: potato
   m_TagString: Untagged
@@ -135,3 +137,29 @@ CapsuleCollider:
   m_Height: 1.5999999
   m_Direction: 2
   m_Center: {x: 0.00043563545, y: 0, z: 0.000001937151}
+--- !u!114 &450222549071903886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3369557138278493154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3adc9e9889b8c4e8bbd870b9b5e201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}
+--- !u!114 &747352250732980946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3369557138278493154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4759b6e94d2b535469370fd872d99219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3989755899249625799}
   - component: {fileID: 6386627531975891257}
   - component: {fileID: 7892442479841754294}
+  - component: {fileID: 2685780028428979895}
   m_Layer: 0
   m_Name: plate
   m_TagString: Untagged
@@ -134,3 +135,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2685780028428979895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3702283098375289871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4759b6e94d2b535469370fd872d99219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreManager: {fileID: 0}
