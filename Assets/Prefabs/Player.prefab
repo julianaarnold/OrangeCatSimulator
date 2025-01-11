@@ -221,6 +221,7 @@ MonoBehaviour:
   shinRotationSign: 1
   isAttached: 0
   positionReached: 0
+  animationState: 0
 --- !u!1 &2279773914929280432
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +302,7 @@ MonoBehaviour:
   footFrontRight: {fileID: 1441034128191516961}
   footBackLeft: {fileID: 4714993642230827553}
   footBackRight: {fileID: 9051066162926528337}
+  bonker: {fileID: 4171916579330797936}
   height: 0.038
   prepareJumpHeight: 0.0716
 --- !u!54 &970633348357914173
@@ -475,6 +477,7 @@ MonoBehaviour:
   shinRotationSign: 1
   isAttached: 0
   positionReached: 0
+  animationState: 0
 --- !u!1 &6621721883735292432
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,6 +799,7 @@ MonoBehaviour:
   shinRotationSign: 1
   isAttached: 0
   positionReached: 0
+  animationState: 0
 --- !u!1 &8807917268240019019
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,6 +883,7 @@ MonoBehaviour:
   shinRotationSign: 1
   isAttached: 0
   positionReached: 0
+  animationState: 0
 --- !u!1001 &569874742166199671
 PrefabInstance:
   m_ObjectHideFlags: 0
