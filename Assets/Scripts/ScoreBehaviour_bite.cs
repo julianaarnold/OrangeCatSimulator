@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreBehaviour_destruct : MonoBehaviour
+public class ScoreBehaviour_bite : MonoBehaviour
 {
     public ScoreManager scoreManager;
-    private bool destroyed = false;
+    private bool eaten = false;
 
     // Start is called before the first frame update
     void Start()
@@ -13,10 +13,10 @@ public class ScoreBehaviour_destruct : MonoBehaviour
         scoreManager = FindObjectOfType<ScoreManager>();
     }
 
-    public void destructScore(int scoreAddition) {
-        if (destroyed == false) {
-            scoreManager.addToScore(scoreAddition);
-            destroyed = true;
+    public void scratchScore() {
+        if (eaten == false) {
+            scoreManager.addToScore(50);
+            eaten = true;
         }
     }
 }
