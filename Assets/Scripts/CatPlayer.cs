@@ -35,7 +35,8 @@ public class CatPlayer : MonoBehaviour
     {
         Vector3 movement = new Vector3(0, 0, 0);
 
-        canJump = Physics.Raycast(transform.position + Vector3.up * 0.2f, Vector3.down, out RaycastHit hit, jumpRay, LayerMask.GetMask("Ground") | LayerMask.GetMask("Counter"));
+        canJump = Physics.OverlapBox(transform.position + Vector3.up * 0.1f, new Vector3(0.2f, 0.2f, 0.2f), transform.rotation, LayerMask.GetMask("Ground") | LayerMask.GetMask("Counter")).Length > 0;
+        //Raycast(transform.position + Vector3.up * 0.2f, Vector3.down, out RaycastHit hit, jumpRay, LayerMask.GetMask("Ground") | LayerMask.GetMask("Counter"));
 
         movement += transform.right * Input.GetAxis("Horizontal");
         movement += transform.forward * Input.GetAxis("Vertical");
@@ -57,6 +58,22 @@ public class CatPlayer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)) {
             bonker.BonkRight(getCurrentBonkable());
             kittyAnimator.BonkRight();
+        }
+
+        if (Input.GetKeyDown(KeyCode.F)) {
+            ScoreBehaviour_bite biteable = getCurrentBiteable();
+            Debug.Log("Biting " + biteable.name, biteable.gameObject);
+            if (biteable != null) {
+                biteable.biteCounter();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0)) {
+            ScoreBehaviour_scratch scratchable = getCurrentScratchable();
+            Debug.Log("Scratching " + scratchable.name, scratchable.gameObject);
+            if (scratchable != null) {
+                scratchable.scratchCounter();
+            }
         }
 
         transform.position += movement * moveSpeed * Time.deltaTime;
@@ -93,18 +110,37 @@ public class CatPlayer : MonoBehaviour
         return closest;
     }
 
-    private Transform getCurrentScratchable() {
-        Collider[] colliders = Physics.OverlapBox(bonkVolume.bounds.center, bonkVolume.size, bonkVolume.transform.rotation);
+    private ScoreBehaviour_scratch getCurrentScratchable() {
+        Collider[] colliders = Physics.OverlapBox(scratchBonkVolume.bounds.center, scratchBonkVolume.size, scratchBonkVolume.transform.rotation);
 
         float minDistance = float.MaxValue;
-        Transform closest = null;
+        ScoreBehaviour_scratch closest = null;
 
         for (int i = 0; i < colliders.Length; i++) {
-            if (colliders[i].TryGetComponent(out ScoreBehaviour_scratch bonkable)) {
-                float distance = Vector3.Distance(bonkVolume.bounds.center, colliders[i].transform.position);
+            if (colliders[i].TryGetComponent(out ScoreBehaviour_scratch scratchable)) {
+                float distance = Vector3.Distance(scratchBonkVolume.bounds.center, colliders[i].transform.position);
                 if (distance < minDistance) {
                     minDistance = distance;
-                    closest = colliders[i].transform;
+                    closest = scratchable;
+                }
+            }
+        }
+
+        return closest;
+    }
+
+    private ScoreBehaviour_bite getCurrentBiteable() {
+        Collider[] colliders = Physics.OverlapBox(scratchBonkVolume.bounds.center, scratchBonkVolume.size, scratchBonkVolume.transform.rotation);
+
+        float minDistance = float.MaxValue;
+        ScoreBehaviour_bite closest = null;
+
+        for (int i = 0; i < colliders.Length; i++) {
+            if (colliders[i].TryGetComponent(out ScoreBehaviour_bite biteable)) {
+                float distance = Vector3.Distance(scratchBonkVolume.bounds.center, colliders[i].transform.position);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closest = biteable;
                 }
             }
         }

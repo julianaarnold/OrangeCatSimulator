@@ -7,6 +7,7 @@ using UnityEngine;
 public enum AnimationState {
     Walking,
     Bonking,
+    Jumping
 }
 
 public class IKFeetTracker : MonoBehaviour
