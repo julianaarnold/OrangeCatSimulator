@@ -47,7 +47,7 @@ public class CatPlayer : MonoBehaviour
     {
         if (Time.time > nextMeowTime) {
             nextMeowTime = Time.time + UnityEngine.Random.Range(1.0f, 10.0f);
-            currentMeow = meows[UnityEngine.Random.Range(0, 1)];
+            currentMeow = meows[UnityEngine.Random.Range(0, meows.Length)];
             audioSource.PlayOneShot(currentMeow);
         }
         Vector3 movement = new Vector3(0, 0, 0);

@@ -1023,7 +1023,7 @@ MonoBehaviour:
   bonker: {fileID: 4171916579330797936}
   bonkVolume: {fileID: 3128408688389236053}
   scratchBonkVolume: {fileID: 4661059214096238910}
-  biteSound: {fileID: 0}
+  biteSound: {fileID: 8300000, guid: a6fae17e406357f4cbbe9acb893a062f, type: 3}
   scratchSound: {fileID: 8300000, guid: 5ac6d9adb0823f84fb37e1b898a784a8, type: 3}
   meows:
   - {fileID: 8300000, guid: ff0035fa72bc11843b187093876fab26, type: 3}
