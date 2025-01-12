@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8624197980970801829}
   - component: {fileID: 5691995664873661441}
   - component: {fileID: 3675934945958568002}
+  - component: {fileID: 2608559715423324785}
   m_Layer: 6
   m_Name: PlayerCam
   m_TagString: Untagged
@@ -137,6 +138,23 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &2608559715423324785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288782200706815427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346d1a53acb16a14eafe207775e2fcd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetDistance: 5
+  maxDistance: 1
+  minDistance: 0.2
+  lagSpeed: 100
+  gimbal: {fileID: 0}
 --- !u!1 &1715043065278037849
 GameObject:
   m_ObjectHideFlags: 0
