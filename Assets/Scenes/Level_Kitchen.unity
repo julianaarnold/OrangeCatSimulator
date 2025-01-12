@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2555,7 +2555,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff777028a2549b04087f4d24c162ae57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 0}
+  scoreManager: {fileID: 1638983712}
+  scratchLimit: 3
 --- !u!4 &358978590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8574179951719483126, guid: d640ec1599e4a30428f6b81ae4d49462,
@@ -3011,6 +3012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 1638983712}
+  biteLimit: 2
 --- !u!1 &438349121 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9201863178861168795, guid: 417983b33f84f1044a4804d1ec12f883,
@@ -3036,6 +3038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 1638983712}
+  biteLimit: 2
 --- !u!1001 &445922775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7108,6 +7111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 1638983712}
+  biteLimit: 2
 --- !u!1 &1006159940
 GameObject:
   m_ObjectHideFlags: 0
@@ -7944,6 +7948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 1638983712}
+  biteLimit: 2
 --- !u!4 &1116837033 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4109101165490198, guid: 2e244810fcf8442c2ae5cd7b1f494341,
@@ -10614,6 +10619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  scoreText: {fileID: 0}
 --- !u!4 &1638983713
 Transform:
   m_ObjectHideFlags: 0
@@ -11981,6 +11987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManager: {fileID: 1638983712}
+  biteLimit: 2
 --- !u!1 &1832895995 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 294599964465735222, guid: 98e647c1a01cac94db008f167a23131e,
