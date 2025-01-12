@@ -18,7 +18,7 @@ public class CatPlayer : MonoBehaviour
     public float jumpRay = 0.25f;
     public Bonker bonker;
 
-    public Collider bonkVolume;
+    public BoxCollider bonkVolume;
 
     // Start is called before the first frame update
     void Start()
@@ -74,15 +74,21 @@ public class CatPlayer : MonoBehaviour
     }
 
     private Transform getCurrentBonkable() {
-        Collider[] colliders = Physics.OverlapBox(bonkVolume.bounds.center, bonkVolume.bounds.extents, bonkVolume.transform.rotation);
+        Collider[] colliders = Physics.OverlapBox(bonkVolume.bounds.center, bonkVolume.size, bonkVolume.transform.rotation);
+
+        float minDistance = float.MaxValue;
+        Transform closest = null;
 
         for (int i = 0; i < colliders.Length; i++) {
-            Debug.Log(colliders[i].name);
             if (colliders[i].TryGetComponent(out ScoreBehaviour bonkable)) {
-                return colliders[i].transform;
+                float distance = Vector3.Distance(bonkVolume.bounds.center, colliders[i].transform.position);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closest = colliders[i].transform;
+                }
             }
         }
 
-        return null;
+        return closest;
     }
 }

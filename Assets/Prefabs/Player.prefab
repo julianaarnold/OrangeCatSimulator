@@ -333,7 +333,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!1 &2664020825235015427
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,7 +638,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.76, y: 1.67, z: 1.13}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6413822840326628115
 Rigidbody:
@@ -666,7 +666,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &4171916579330797936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,7 +696,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3222965831820725627}
-  - component: {fileID: 8090050022540290049}
+  - component: {fileID: 8978761391701578994}
   m_Layer: 6
   m_Name: Height Offset
   m_TagString: Untagged
@@ -722,8 +722,8 @@ Transform:
   - {fileID: 5188687663664676790}
   m_Father: {fileID: 6798776003765014789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &8090050022540290049
-SphereCollider:
+--- !u!65 &8978761391701578994
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -741,8 +741,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.02
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.08288443, y: 0.15105087, z: 0.15447742}
+  m_Center: {x: 0.0009798408, y: 0.06552544, z: 0.003981918}
 --- !u!1 &7995594201713985119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1484,6 +1484,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5590366386213509703}
+    - targetCorrespondingSourceObject: {fileID: 4252388143822524505, guid: c287dccaa72674b4c8142d990e0f3f01,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5767784511657129226}
   m_SourcePrefab: {fileID: 100100000, guid: c287dccaa72674b4c8142d990e0f3f01, type: 3}
 --- !u!1 &545220149021443016 stripped
 GameObject:
@@ -1652,6 +1656,33 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.024137946
   m_Center: {x: 0, y: 0.02, z: 0}
+--- !u!1 &4389635743536336174 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4252388143822524505, guid: c287dccaa72674b4c8142d990e0f3f01,
+    type: 3}
+  m_PrefabInstance: {fileID: 569874742166199671}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &5767784511657129226
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4389635743536336174}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.058428284
+  m_Center: {x: -2.469196e-15, y: 0.011571734, z: -0.0000000012293888}
 --- !u!4 &4695001394060483073 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5102407865691850614, guid: c287dccaa72674b4c8142d990e0f3f01,

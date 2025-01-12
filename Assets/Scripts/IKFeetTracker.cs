@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 
@@ -94,7 +95,15 @@ public class IKFeetTracker : MonoBehaviour
 
     float GetJointAngle(float a, float b, float c) {
         c = Mathf.Clamp(c, 0, a + b - 0.001f);
-        return 180 - Mathf.Rad2Deg * Mathf.Acos((a*a + b*b - c*c) / (2*a*b));
+
+        double aD = a;
+        double bD = b;
+        double cD = c;
+
+        double cos = (aD*aD + bD*bD - cD*cD) / (2*aD*bD);
+        float angle = 180 - Mathf.Rad2Deg * Mathf.Acos(Mathf.Clamp01((float)cos));
+        if (float.IsNaN(angle)) Debug.LogError("a: " + a + " b: " + b + " c: " + c + " (a*a + b*b - c*c) / (2*a*b): " + (aD*aD + bD*bD - cD*cD) / (2*aD*bD));
+        return angle;
     }
 
     void Attach(Transform t, Vector3 location) {
