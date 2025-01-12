@@ -1028,6 +1028,7 @@ MonoBehaviour:
   meows:
   - {fileID: 8300000, guid: ff0035fa72bc11843b187093876fab26, type: 3}
   - {fileID: 8300000, guid: 1502443f6a158ae46b849f1525606d90, type: 3}
+  endScreen: {fileID: 2894391278221964092}
   audioSource: {fileID: 0}
 --- !u!114 &8648236956130680010
 MonoBehaviour:
