@@ -34,14 +34,37 @@ public class IKFeetTracker : MonoBehaviour
 
     public AnimationState animationState = AnimationState.Walking;
 
+
+    Transform playerRoot;
+
     // Start is called before the first frame update
     void Start()
     {
         thighLength = Vector3.Distance(thighTarget.position, shinTarget.position);
         shinLength = Vector3.Distance(shinTarget.position, footTarget.position);
 
-        initialThighRotation = thighTarget.rotation;
+        initialThighRotation = thighTarget.localRotation;
+
+        playerRoot = thighTarget.GetComponentInParent<CatAnimator>().transform;
     }
+
+    Quaternion getXZRotationBetween(Vector3 a, Vector3 b, Vector3 x, Vector3 z) {
+
+        float alpha = Vector3.SignedAngle(a, b, x);
+
+        Quaternion rotX = Quaternion.AngleAxis(alpha, x);
+
+        Vector3 aRotated = rotX * b;
+        Vector3 zRotated = rotX * z;
+
+        float beta = Vector3.SignedAngle(aRotated, b, zRotated);
+
+        Quaternion rotZ = Quaternion.AngleAxis(beta, z);
+
+        return rotZ * rotX;
+    }
+
+
 
     // Update is called once per frame
     void Update()
@@ -75,7 +98,7 @@ public class IKFeetTracker : MonoBehaviour
 
         shinTarget.localRotation = Quaternion.Euler(shinRotationOffset + new Vector3(jointAngle * (shinRotationSign ? -1:1), 0, 0));
 
-        targetRotation = Quaternion.FromToRotation(footTarget.position - thighTarget.position, transform.position - thighTarget.position) * thighTarget.rotation;
+        targetRotation = calculateNewTargetRotation(); // Quaternion.FromToRotation(footTarget.position - thighTarget.position, transform.position - thighTarget.position) * thighTarget.rotation;
         
         if (!isAttached) {
             if (Quaternion.Angle(thighTarget.rotation, targetRotation) < 1.0f) {
@@ -88,10 +111,22 @@ public class IKFeetTracker : MonoBehaviour
         } else {
             thighTarget.rotation = targetRotation;
         }
-        
+
         //footTarget.position = transform.position;
         //footTarget.rotation = transform.rotation;
     }
+
+    Quaternion calculateNewTargetRotation() {
+        Quaternion oldRotation = thighTarget.localRotation;
+
+        thighTarget.localRotation = initialThighRotation;
+        Quaternion rot = Quaternion.FromToRotation(footTarget.position - thighTarget.position, transform.position - thighTarget.position) * thighTarget.rotation;
+        thighTarget.localRotation = oldRotation;
+
+        return rot;
+    }
+    
+
 
     float GetJointAngle(float a, float b, float c) {
         c = Mathf.Clamp(c, 0, a + b - 0.001f);
@@ -103,7 +138,7 @@ public class IKFeetTracker : MonoBehaviour
         double cos = (aD*aD + bD*bD - cD*cD) / (2*aD*bD);
         float angle = 180 - Mathf.Rad2Deg * Mathf.Acos(Mathf.Clamp01((float)cos));
         if (float.IsNaN(angle)) Debug.LogError("a: " + a + " b: " + b + " c: " + c + " (a*a + b*b - c*c) / (2*a*b): " + (aD*aD + bD*bD - cD*cD) / (2*aD*bD));
-        return angle;
+        return 0; //angle;
     }
 
     void Attach(Transform t, Vector3 location) {
