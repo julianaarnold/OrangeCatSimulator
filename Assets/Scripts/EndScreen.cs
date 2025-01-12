@@ -34,4 +34,8 @@ public class EndScreen : MonoBehaviour
     public void restartGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public bool isGameEnded() {
+        return gameEnded;
+    }
 }

@@ -27,6 +27,8 @@ public class CatPlayer : MonoBehaviour
     private float nextMeowTime;
     private AudioClip currentMeow;
 
+    public EndScreen endScreen;
+
 
     public AudioSource audioSource;
 
@@ -47,9 +49,14 @@ public class CatPlayer : MonoBehaviour
     {
         if (Time.time > nextMeowTime) {
             nextMeowTime = Time.time + UnityEngine.Random.Range(1.0f, 10.0f);
-            currentMeow = meows[UnityEngine.Random.Range(0, 1)];
+            currentMeow = meows[UnityEngine.Random.Range(0, meows.Length)];
             audioSource.PlayOneShot(currentMeow);
         }
+
+        if (endScreen.isGameEnded()) {
+            return;
+        }
+
         Vector3 movement = new Vector3(0, 0, 0);
 
         canJump = Physics.OverlapBox(transform.position + Vector3.up * 0.1f, new Vector3(0.2f, 0.2f, 0.2f), transform.rotation, LayerMask.GetMask("Ground") | LayerMask.GetMask("Counter")).Length > 0;
