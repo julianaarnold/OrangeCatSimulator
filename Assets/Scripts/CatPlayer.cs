@@ -35,7 +35,8 @@ public class CatPlayer : MonoBehaviour
     {
         Vector3 movement = new Vector3(0, 0, 0);
 
-        canJump = Physics.Raycast(transform.position + Vector3.up * 0.2f, Vector3.down, out RaycastHit hit, jumpRay, LayerMask.GetMask("Ground") | LayerMask.GetMask("Counter"));
+        canJump = Physics.OverlapBox(transform.position + Vector3.up * 0.1f, new Vector3(0.2f, 0.2f, 0.2f), transform.rotation, LayerMask.GetMask("Ground") | LayerMask.GetMask("Counter")).Length > 0;
+        //Raycast(transform.position + Vector3.up * 0.2f, Vector3.down, out RaycastHit hit, jumpRay, LayerMask.GetMask("Ground") | LayerMask.GetMask("Counter"));
 
         movement += transform.right * Input.GetAxis("Horizontal");
         movement += transform.forward * Input.GetAxis("Vertical");
