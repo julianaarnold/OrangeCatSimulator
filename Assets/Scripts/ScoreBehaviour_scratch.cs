@@ -8,6 +8,7 @@ public class ScoreBehaviour_scratch : MonoBehaviour
     private bool scratched;
     private int scratchCount;
     public int scratchLimit = 3;
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,9 @@ public class ScoreBehaviour_scratch : MonoBehaviour
         if (scratched == false) {
             scoreManager.addToScore(50);
             scratched = true;
+            if (audioSource != null) {
+                audioSource.Play();
+            }
         }
     }
 }
