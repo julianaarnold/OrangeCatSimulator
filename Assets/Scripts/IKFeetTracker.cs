@@ -7,6 +7,7 @@ using UnityEngine;
 public enum AnimationState {
     Walking,
     Bonking,
+    Jumping
 }
 
 public class IKFeetTracker : MonoBehaviour
@@ -85,6 +86,16 @@ public class IKFeetTracker : MonoBehaviour
                 }
             }
         }
+
+        if (animationState == AnimationState.Jumping) {
+            if (isAttached) {
+                Detach();
+                ResetPosition();
+
+                /*transform.position = rootPosition.position;
+                transform.rotation = rootPosition.rotation;*/
+            }
+        }
         
         UpdateLinkage();
     }
@@ -153,8 +164,8 @@ public class IKFeetTracker : MonoBehaviour
     }
 
     void ResetPosition() {
-        transform.position = rootPosition.position + (rootPosition.position - transform.position) * 0.5f;
-        transform.localPosition = new Vector3(rootPosition.localPosition.x, transform.localPosition.y, transform.localPosition.z);
+        transform.localPosition = rootPosition.localPosition + (rootPosition.localPosition.z - transform.localPosition.z) * Vector3.forward * 0.5f;
+        //transform.localPosition = new Vector3(rootPosition.localPosition.x, transform.localPosition.y, transform.localPosition.z);
         transform.rotation = rootPosition.rotation;
     }
 
@@ -173,5 +184,15 @@ public class IKFeetTracker : MonoBehaviour
     private void CancelRotationBuildup() {
         thighTarget.rotation = initialThighRotation;
         thighTarget.rotation = Quaternion.FromToRotation(footTarget.position - thighTarget.position, transform.position - thighTarget.position) * thighTarget.rotation;
+    }
+
+    public void SetJumping(bool isJumping) {
+        if (animationState == AnimationState.Bonking) return;
+
+        if (isJumping) {
+            animationState = AnimationState.Jumping;
+        } else {
+            animationState = AnimationState.Walking;
+        }
     }
 }

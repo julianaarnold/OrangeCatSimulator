@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
 {
     public int score;
     public TMP_Text scoreText;
+    public TMP_Text endScoreText;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +20,6 @@ public class ScoreManager : MonoBehaviour
         score += addition;
         // Debug.Log(score);
         scoreText.text = "Score: " + score.ToString();
+        endScoreText.text = scoreText.text;
     }
 }

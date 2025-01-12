@@ -47,4 +47,12 @@ public class CatAnimator : MonoBehaviour
     {
         footFrontRight.StartBonk(bonker);
     }
+
+    public void SetJumping(bool isJumping)
+    {
+        footFrontLeft.SetJumping(isJumping);
+        footFrontRight.SetJumping(isJumping);
+        footBackLeft.SetJumping(isJumping);
+        footBackRight.SetJumping(isJumping);
+    }
 }

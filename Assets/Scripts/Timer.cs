@@ -11,6 +11,7 @@ public class Timer : MonoBehaviour
     public float minutes;
     public float seconds;
     public TMP_Text timerText;
+    public EndScreen endScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +41,7 @@ public class Timer : MonoBehaviour
                 timerIsRunning = false;
                 timeRemaining = 0;
                 DisplayTime(timeRemaining);
+                endScreen.showScreen();
             }
         }
     }
