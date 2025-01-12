@@ -21,12 +21,21 @@ public class CatPlayer : MonoBehaviour
     public BoxCollider bonkVolume;
     public BoxCollider scratchBonkVolume;
 
+    public AudioClip biteSound;
+    public AudioClip scratchSound;
+    public AudioClip[] meows;
+
+
+    public AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         selfRigidbody = GetComponent<Rigidbody>();
         kittyAnimator = GetComponent<CatAnimator>();
+        audioSource = GetComponent<AudioSource>();
+        
         canJump = true;
     }
 
