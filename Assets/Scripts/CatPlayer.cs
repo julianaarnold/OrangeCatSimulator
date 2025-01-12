@@ -24,6 +24,8 @@ public class CatPlayer : MonoBehaviour
     public AudioClip biteSound;
     public AudioClip scratchSound;
     public AudioClip[] meows;
+    private float nextMeowTime;
+    private AudioClip currentMeow;
 
 
     public AudioSource audioSource;
@@ -35,6 +37,7 @@ public class CatPlayer : MonoBehaviour
         selfRigidbody = GetComponent<Rigidbody>();
         kittyAnimator = GetComponent<CatAnimator>();
         audioSource = GetComponent<AudioSource>();
+        nextMeowTime = Time.time + UnityEngine.Random.Range(1.0f, 10.0f);
         
         canJump = true;
     }
@@ -42,6 +45,11 @@ public class CatPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.time > nextMeowTime) {
+            nextMeowTime = Time.time + UnityEngine.Random.Range(1.0f, 10.0f);
+            currentMeow = meows[UnityEngine.Random.Range(0, 1)];
+            audioSource.PlayOneShot(currentMeow);
+        }
         Vector3 movement = new Vector3(0, 0, 0);
 
         canJump = Physics.OverlapBox(transform.position + Vector3.up * 0.1f, new Vector3(0.2f, 0.2f, 0.2f), transform.rotation, LayerMask.GetMask("Ground") | LayerMask.GetMask("Counter")).Length > 0;
@@ -76,6 +84,7 @@ public class CatPlayer : MonoBehaviour
             Debug.Log("Biting " + biteable.name, biteable.gameObject);
             if (biteable != null) {
                 biteable.biteCounter();
+                audioSource.PlayOneShot(biteSound);
             }
         }
 
@@ -84,6 +93,7 @@ public class CatPlayer : MonoBehaviour
             Debug.Log("Scratching " + scratchable.name, scratchable.gameObject);
             if (scratchable != null) {
                 scratchable.scratchCounter();
+                audioSource.PlayOneShot(scratchSound);
             }
         }
 
