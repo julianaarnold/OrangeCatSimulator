@@ -439,6 +439,59 @@ Transform:
   - {fileID: 3873799025315398314}
   m_Father: {fileID: 6798776003765014789}
   m_LocalEulerAnglesHint: {x: 22.072, y: 0, z: 0}
+--- !u!1 &1752346879892119484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5089291230028471326}
+  - component: {fileID: 4661059214096238910}
+  m_Layer: 0
+  m_Name: ScratchBiteVolume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5089291230028471326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752346879892119484}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.15323655}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6798776003765014789}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4661059214096238910
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752346879892119484}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.24, y: 0.33012515, z: 0.22281218}
+  m_Center: {x: 0, y: 0.17277339, z: 0.009041548}
 --- !u!1 &2259876832267777718
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +589,7 @@ Transform:
   - {fileID: 6246262613497963628}
   - {fileID: 3222965831820725627}
   - {fileID: 8944474914029047276}
+  - {fileID: 5089291230028471326}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2511550263253312259
@@ -557,6 +611,7 @@ MonoBehaviour:
   jumpRay: 0.25
   bonker: {fileID: 4171916579330797936}
   bonkVolume: {fileID: 3128408688389236053}
+  scratchBonkVolume: {fileID: 4661059214096238910}
 --- !u!114 &8648236956130680010
 MonoBehaviour:
   m_ObjectHideFlags: 0

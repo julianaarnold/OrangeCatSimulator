@@ -19,6 +19,7 @@ public class CatPlayer : MonoBehaviour
     public Bonker bonker;
 
     public BoxCollider bonkVolume;
+    public BoxCollider scratchBonkVolume;
 
     // Start is called before the first frame update
     void Start()
@@ -81,6 +82,25 @@ public class CatPlayer : MonoBehaviour
 
         for (int i = 0; i < colliders.Length; i++) {
             if (colliders[i].TryGetComponent(out ScoreBehaviour bonkable)) {
+                float distance = Vector3.Distance(bonkVolume.bounds.center, colliders[i].transform.position);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closest = colliders[i].transform;
+                }
+            }
+        }
+
+        return closest;
+    }
+
+    private Transform getCurrentScratchable() {
+        Collider[] colliders = Physics.OverlapBox(bonkVolume.bounds.center, bonkVolume.size, bonkVolume.transform.rotation);
+
+        float minDistance = float.MaxValue;
+        Transform closest = null;
+
+        for (int i = 0; i < colliders.Length; i++) {
+            if (colliders[i].TryGetComponent(out ScoreBehaviour_scratch bonkable)) {
                 float distance = Vector3.Distance(bonkVolume.bounds.center, colliders[i].transform.position);
                 if (distance < minDistance) {
                     minDistance = distance;
